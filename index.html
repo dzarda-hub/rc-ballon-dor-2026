@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261030T052713">
+<meta name="build" content="20261101T091617">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -849,6 +849,21 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
   .nav-logo{height:auto;margin:0 auto}
   .hero{padding-top:146px}
 }
+
+/* ---- final match countdown ---- */
+.final-band{padding:90px 0 10px}
+.final-card{border:1px solid rgba(252,212,160,.35);border-radius:20px;padding:48px 28px 42px;text-align:center;
+  background:radial-gradient(80% 130% at 50% -20%,rgba(252,212,160,.14),transparent 62%),linear-gradient(180deg,#0b1f2b,#081620);
+  position:relative;overflow:hidden}
+.final-card h2{margin:14px 0 30px;font-size:clamp(1.5rem,3vw,2.3rem)}
+.count{display:flex;align-items:flex-start;justify-content:center;gap:16px}
+.count-unit{min-width:88px}
+.count-unit b{display:block;font-family:var(--display);font-size:clamp(2.1rem,5.6vw,3.5rem);line-height:1;color:var(--champagne);font-weight:500;font-variant-numeric:tabular-nums}
+.count-unit span{display:block;margin-top:9px;font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.count-sep{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.4rem);color:rgba(252,212,160,.45);line-height:1.25}
+.final-date{margin:28px 0 0;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.final-done{margin:18px 0 0;color:var(--champagne);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:640px){.count{gap:8px}.count-unit{min-width:62px}.count-sep{display:none}}
 </style>
 </head>
 <body>
@@ -861,6 +876,7 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
       <div class="nav-left">
         <a href="#contenders">Nominees</a>
         <a href="#awards">Awards</a>
+        <a href="#final">Final</a>
         <a href="#results">Results</a>
       </div>
       <a class="nav-logo" href="#home" aria-label="Ballon d'Or">
@@ -927,6 +943,27 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 </section>
 
 <!-- ================= RESULTS (SEALED) ================= -->
+<!-- ================= FINAL MATCH COUNTDOWN ================= -->
+<section id="final" class="final-band">
+  <div class="wrap">
+    <div class="final-card reveal" style="margin-top:0">
+      <div class="eyebrow" style="justify-content:center">The Final Match</div>
+      <h2>Countdown to the Final</h2>
+      <div class="count" id="finalCount" aria-live="polite" aria-label="Time until the final match">
+        <div class="count-unit"><b id="cdD">00</b><span>Days</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-unit"><b id="cdH">00</b><span>Hours</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-unit"><b id="cdM">00</b><span>Minutes</span></div>
+        <div class="count-sep">:</div>
+        <div class="count-unit"><b id="cdS">00</b><span>Seconds</span></div>
+      </div>
+      <p class="final-date">Ends Tuesday, 8 December 2026</p>
+      <p class="final-done" id="finalDone" hidden>Match day is here</p>
+    </div>
+  </div>
+</section>
+
 <section id="results">
   <div class="wrap">
     <div class="sec-head">
@@ -1939,13 +1976,40 @@ else boot();
       var url = location.pathname + "?cb=" + Date.now();
       var res = await fetch(url, { cache: "no-store" });
       if (!res.ok) return;
-      var m = (await res.text()).match(/<meta name="build" content="20261030T052713"]+)"/);
+      var m = (await res.text()).match(new RegExp('<meta[^>]*name="build"[^>]*content="([^"]+)"'));
       if (m && m[1] !== BUILD) location.reload();
     } catch (e) { /* offline — try again next tick */ }
     finally { busy = false; }
   }
   setInterval(check, 30000);
   document.addEventListener("visibilitychange", function () { if (!document.hidden) check(); });
+})();
+</script>
+<script>
+/* final match countdown — ends at 00:00 on Tuesday 8 December 2026 (local time) */
+(function () {
+  var TARGET = new Date(2026, 11, 8, 0, 0, 0);
+  var dEl = document.getElementById("cdD"), hEl = document.getElementById("cdH"),
+      mEl = document.getElementById("cdM"), sEl = document.getElementById("cdS"),
+      doneEl = document.getElementById("finalDone"), countEl = document.getElementById("finalCount");
+  if (!dEl) return;
+  var pad = function (n) { return String(n).padStart(2, "0"); };
+  function tick() {
+    var diff = TARGET.getTime() - Date.now();
+    if (diff <= 0) {
+      dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
+      if (doneEl) doneEl.hidden = false;
+      if (countEl) countEl.style.opacity = ".55";
+      return false;
+    }
+    var s = Math.floor(diff / 1000);
+    dEl.textContent = pad(Math.floor(s / 86400));
+    hEl.textContent = pad(Math.floor(s % 86400 / 3600));
+    mEl.textContent = pad(Math.floor(s % 3600 / 60));
+    sEl.textContent = pad(s % 60);
+    return true;
+  }
+  if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
 })();
 </script>
 </body>
