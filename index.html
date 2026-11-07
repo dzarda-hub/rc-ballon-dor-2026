@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261107T050310">
+<meta name="build" content="20261107T080111">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -865,6 +865,41 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 .final-date{margin:28px 0 0;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .final-done{margin:18px 0 0;color:var(--champagne);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 @media(max-width:640px){.count{gap:8px}.count-unit{min-width:62px}.count-sep{display:none}}
+
+/* ================= THE ROAD TIMELINE ================= */
+.road-sec{padding:96px 0 92px;position:relative}
+.road-head{max-width:var(--max);margin:0 auto 58px;padding:0 28px}
+.road-head h2{font-size:clamp(1.6rem,3.4vw,2.55rem);max-width:24ch;line-height:1.02}
+.road-scroll{overflow-x:auto;overflow-y:hidden;padding:0 28px 14px;scrollbar-width:thin;scrollbar-color:rgba(252,212,160,.35) transparent}
+.road-scroll::-webkit-scrollbar{height:6px}
+.road-scroll::-webkit-scrollbar-track{background:transparent}
+.road-scroll::-webkit-scrollbar-thumb{background:rgba(252,212,160,.28);border-radius:3px}
+.road-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr) 272px;min-width:1560px;height:780px}
+.road-line{position:absolute;left:0;right:0;top:50%;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,rgba(252,212,160,.12),rgba(252,212,160,.7) 7%,rgba(252,212,160,.7) 94%,rgba(252,212,160,.25))}
+.road-col{position:relative;height:100%}
+.road-dot{position:absolute;left:50%;top:calc(50% - 3.5px);width:7px;height:7px;border-radius:50%;
+  background:var(--champagne);transform:translateX(-50%);box-shadow:0 0 0 4px rgba(252,212,160,.1)}
+.road-stem{position:absolute;left:50%;width:1px;background:rgba(252,212,160,.45);transform:translateX(-50%)}
+.road-col.up .road-stem{height:54px;bottom:calc(50% + 3px)}
+.road-col.down .road-stem{height:54px;top:calc(50% + 3px)}
+.road-copy{position:absolute;left:0;right:27px}
+.road-col.up .road-copy{bottom:calc(50% + 57px)}
+.road-col.down .road-copy{top:calc(50% + 57px)}
+.road-copy h3{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--champagne);line-height:1.2}
+.road-copy p{margin:0;font-size:11.5px;line-height:1.72;color:rgba(252,212,160,.6);font-weight:300}
+.road-final{position:relative;height:100%;display:flex;align-items:center}
+.road-box{position:relative;z-index:2;width:100%;border:1px solid rgba(252,212,160,.55);border-radius:12px;
+  background:#08161f;padding:24px 22px}
+.road-box h3{margin:0 0 12px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--champagne);line-height:1.2}
+.road-box p{margin:0;font-size:11.5px;line-height:1.72;color:rgba(252,212,160,.62);font-weight:300}
+@media(max-width:900px){
+  .road-sec{padding:76px 0 70px}
+  .road-head{margin-bottom:42px}
+  .road-track{height:740px;min-width:1500px}
+}
 </style>
 </head>
 <body>
@@ -978,13 +1013,52 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 </section>
 
 <!-- ================= THE TROPHY ================= -->
-<section id="trophy" class="trophy-band">
-  <div class="trophy-bg"><img id="trophyImg" alt="The Ballon d'Or trophy"></div>
-  <div class="wrap">
-    <div class="trophy-copy">
-      <div class="eyebrow">The prize</div>
-      <h2 id="trophyHeading">The Golden Ball</h2>
-      <p class="lead" id="trophyLead"></p>
+<!-- ================= THE ROAD TO RC BALLON D'OR ================= -->
+<section id="road" class="road-sec">
+  <div class="road-head">
+    <h2>The Road to RC Ballon d’Or 2026</h2>
+  </div>
+  <div class="road-scroll">
+    <div class="road-track">
+      <div class="road-line"></div>
+      <div class="road-col up">
+        <div class="road-copy"><h3>May — The Beginning</h3><p>We began playing soccer for the first time after spending most of our time playing volleyball. The original group consisted of Deniz, Angelo, Taylan, Mohammad, Yusuf, Aryan and Abraham. At this stage, we were simply playing for fun, with no competition in mind.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col down">
+        <div class="road-copy"><h3>June — Expansion</h3><p>More members joined the group. Nawar, Rivansh, Alex and Maisarah played their first matches, with Nawar and Rivansh quickly becoming dominant players.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col up">
+        <div class="road-copy"><h3>July — The Birth of The SFT Files</h3><p>Matches became more competitive, and players began taking the game more seriously. Deniz created what would become The SFT Files, introducing player statistics, ratings and two clubs: Quasaunt FC and Dechamps FC. Multiple awards for soccer-related categories were also introduced.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col down">
+        <div class="road-copy"><h3>August — A Competitive Era</h3><p>Yusuf and Rivansh were removed from The SFT Files. Players became more focused on winning for their respective teams. Deniz also began creating player cards but eventually scrapped the idea in favour of something bigger in the future.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col up">
+        <div class="road-copy"><h3>September — The Birth of RC Ballon d’Or</h3><p>Timmy was introduced under the coaching of Deniz and began playing as a defender for Dechamps FC. Deniz officially revealed the RC Ballon d’Or, an awards ceremony recognising the best players of the year, featuring multiple awards and a Ballon d’Or trophy.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col down">
+        <div class="road-copy"><h3>October — Building the Event</h3><p>Goals and assists statistics were introduced for Nawar and Deniz, the two runners-up for the Ballon d’Or trophy. Deniz also created the official RC Ballon d’Or 2026 website, showcasing nominees, awards and results.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-col up">
+        <div class="road-copy"><h3>November — The Final Countdown</h3><p>The final matches of the year are being played as preparations continue for the December ceremony. The event is set to take place during Activities Week in the school auditorium.</p></div>
+        <div class="road-stem"></div>
+        <div class="road-dot"></div>
+      </div>
+      <div class="road-final">
+        <div class="road-box"><h3>December — The Grand Finale</h3><p>The journey reaches its conclusion with the RC Ballon d’Or 2026 ceremony, celebrating the players, achievements and history of the soccer group.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1352,8 +1426,9 @@ function renderResults() {
 
 function renderTrophy() {
   const s = DATA.sectionText, A = DATA.assets || {};
-  $("#trophyHeading").textContent = s.trophyHeading;
-  $("#trophyLead").textContent = s.trophyLead;
+  const th = $("#trophyHeading"), tl = $("#trophyLead");
+  if (th) th.textContent = s.trophyHeading;
+  if (tl) tl.textContent = s.trophyLead;
   const img = $("#trophyImg");
   if (img) img.src = A.trophy || "";
 }
