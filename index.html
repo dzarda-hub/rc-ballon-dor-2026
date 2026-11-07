@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261107T080157">
+<meta name="build" content="20261107T080624">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -867,38 +867,41 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 @media(max-width:640px){.count{gap:8px}.count-unit{min-width:62px}.count-sep{display:none}}
 
 /* ================= THE ROAD TIMELINE ================= */
-.road-sec{padding:96px 0 92px;position:relative}
-.road-head{max-width:var(--max);margin:0 auto 58px;padding:0 28px}
-.road-head h2{font-size:clamp(1.6rem,3.4vw,2.55rem);max-width:24ch;line-height:1.02}
-.road-scroll{overflow-x:auto;overflow-y:hidden;padding:0 28px 14px;scrollbar-width:thin;scrollbar-color:rgba(252,212,160,.35) transparent}
-.road-scroll::-webkit-scrollbar{height:6px}
-.road-scroll::-webkit-scrollbar-track{background:transparent}
-.road-scroll::-webkit-scrollbar-thumb{background:rgba(252,212,160,.28);border-radius:3px}
-.road-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr) 272px;min-width:1560px;height:820px}
+.road-sec{padding:96px 0 100px;position:relative}
+.road-sec .sec-head{margin-bottom:54px}
+.road-scroll{overflow-x:auto;overflow-y:hidden;padding:6px 34px 30px;cursor:grab;
+  scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+.road-scroll::-webkit-scrollbar{display:none}
+.road-scroll.dragging{cursor:grabbing}
+.road-scroll.dragging a,.road-scroll.dragging *{user-select:none}
+.road-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr) 318px;min-width:1780px;height:980px}
 .road-line{position:absolute;left:0;right:0;top:50%;height:1px;pointer-events:none;
-  background:linear-gradient(90deg,rgba(252,212,160,.12),rgba(252,212,160,.7) 7%,rgba(252,212,160,.7) 94%,rgba(252,212,160,.25))}
+  background:linear-gradient(90deg,rgba(252,212,160,.10),rgba(252,212,160,.62) 6%,rgba(252,212,160,.62) 95%,rgba(252,212,160,.18));
+  box-shadow:0 0 18px rgba(252,212,160,.18)}
 .road-col{position:relative;height:100%}
-.road-dot{position:absolute;left:50%;top:calc(50% - 3.5px);width:7px;height:7px;border-radius:50%;
-  background:var(--champagne);transform:translateX(-50%);box-shadow:0 0 0 4px rgba(252,212,160,.1)}
-.road-stem{position:absolute;left:50%;width:1px;background:rgba(252,212,160,.45);transform:translateX(-50%)}
-.road-col.up .road-stem{height:54px;bottom:calc(50% + 3px)}
-.road-col.down .road-stem{height:54px;top:calc(50% + 3px)}
-.road-copy{position:absolute;left:0;right:27px}
-.road-col.up .road-copy{bottom:calc(50% + 57px)}
-.road-col.down .road-copy{top:calc(50% + 57px)}
-.road-copy h3{margin:0 0 11px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--champagne);line-height:1.2}
-.road-copy p{margin:0;font-size:11.5px;line-height:1.72;color:rgba(252,212,160,.6);font-weight:300;overflow-wrap:break-word}
+.road-dot{position:absolute;left:50%;top:calc(50% - 5px);width:10px;height:10px;border-radius:50%;
+  background:var(--champagne);transform:translateX(-50%);
+  box-shadow:0 0 0 5px rgba(252,212,160,.10),0 0 18px rgba(252,212,160,.35)}
+.road-stem{position:absolute;left:50%;width:1px;background:linear-gradient(180deg,rgba(252,212,160,.55),rgba(252,212,160,.18));transform:translateX(-50%)}
+.road-col.up .road-stem{height:72px;bottom:calc(50% + 6px);background:linear-gradient(0deg,rgba(252,212,160,.55),rgba(252,212,160,.18))}
+.road-col.down .road-stem{height:72px;top:calc(50% + 6px)}
+.road-copy{position:absolute;left:2px;right:34px}
+.road-col.up .road-copy{bottom:calc(50% + 78px)}
+.road-col.down .road-copy{top:calc(50% + 78px)}
+.road-copy h3{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--champagne);line-height:1.25}
+.road-copy p{margin:0;font-size:13.5px;line-height:1.75;color:rgba(252,212,160,.64);font-weight:300;overflow-wrap:break-word}
 .road-final{position:relative;height:100%;display:flex;align-items:center}
-.road-box{position:relative;z-index:2;width:100%;border:1px solid rgba(252,212,160,.55);border-radius:12px;
-  background:#08161f;padding:24px 22px}
-.road-box h3{margin:0 0 12px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--champagne);line-height:1.2}
-.road-box p{margin:0;font-size:11.5px;line-height:1.72;color:rgba(252,212,160,.62);font-weight:300}
+.road-box{position:relative;z-index:2;width:100%;border:1px solid rgba(252,212,160,.55);border-radius:16px;
+  background:linear-gradient(180deg,#0b1f2b,#081620);padding:30px 26px;
+  box-shadow:0 0 40px rgba(252,212,160,.07),inset 0 1px 0 rgba(255,255,255,.04)}
+.road-box h3{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--champagne);line-height:1.25}
+.road-box p{margin:0;font-size:13.5px;line-height:1.75;color:rgba(252,212,160,.68);font-weight:300}
 @media(max-width:900px){
-  .road-sec{padding:76px 0 70px}
-  .road-head{margin-bottom:42px}
-  .road-track{height:790px;min-width:1500px}
+  .road-sec{padding:74px 0 76px}
+  .road-scroll{padding:6px 22px 26px}
+  .road-track{height:900px;min-width:1660px;grid-template-columns:repeat(7,1fr) 300px}
 }
 </style>
 </head>
@@ -1015,8 +1018,12 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 <!-- ================= THE TROPHY ================= -->
 <!-- ================= THE ROAD TO RC BALLON D'OR ================= -->
 <section id="road" class="road-sec">
-  <div class="road-head">
-    <h2>The Road to RC Ballon d’Or 2026</h2>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Journey</div>
+      <h2>The Road to RC Ballon d’Or 2026</h2>
+      <p class="lead">Eight months, one golden ball — how a group of friends turned a lunchtime kickabout into an awards night.</p>
+    </div>
   </div>
   <div class="road-scroll">
     <div class="road-track">
@@ -2086,6 +2093,50 @@ else boot();
     return true;
   }
   if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
+})();
+</script>
+<script>
+/* the road timeline: drag anywhere to pan, mouse wheel scrolls sideways */
+(function () {
+  var el = document.querySelector(".road-scroll");
+  if (!el) return;
+  var down = false, startX = 0, startLeft = 0, moved = 0, pid = null;
+  el.addEventListener("pointerdown", function (e) {
+    if (e.button !== 0 && e.pointerType === "mouse") return;
+    down = true; moved = 0; pid = e.pointerId;
+    startX = e.clientX; startLeft = el.scrollLeft;
+    el.classList.add("dragging");
+    try { el.setPointerCapture(pid); } catch (err) {}
+  });
+  el.addEventListener("pointermove", function (e) {
+    if (!down) return;
+    var dx = e.clientX - startX;
+    moved = Math.abs(dx);
+    el.scrollLeft = startLeft - dx;
+    if (moved > 4) e.preventDefault();
+  });
+  function end(e) {
+    if (!down) return;
+    down = false;
+    el.classList.remove("dragging");
+    try { el.releasePointerCapture(pid); } catch (err) {}
+    if (moved > 8) {
+      var kill = function (ev) { ev.stopPropagation(); ev.preventDefault(); el.removeEventListener("click", kill, true); };
+      el.addEventListener("click", kill, true);
+      setTimeout(function () { el.removeEventListener("click", kill, true); }, 320);
+    }
+  }
+  el.addEventListener("pointerup", end);
+  el.addEventListener("pointercancel", end);
+  el.addEventListener("pointerleave", function () { if (down) end(); });
+  el.addEventListener("wheel", function (e) {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    var max = el.scrollWidth - el.clientWidth;
+    if (el.scrollLeft <= 0 && e.deltaY < 0) return;
+    if (el.scrollLeft >= max - 1 && e.deltaY > 0) return;
+    el.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
 })();
 </script>
 </body>
