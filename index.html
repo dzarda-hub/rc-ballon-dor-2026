@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261107T080908">
+<meta name="build" content="20261107T092118">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -874,25 +874,24 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 .road-scroll::-webkit-scrollbar{display:none}
 .road-scroll.dragging{cursor:grabbing}
 .road-scroll.dragging a,.road-scroll.dragging *{user-select:none}
-.road-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr) 318px;min-width:1780px;height:980px}
-.road-line{position:absolute;left:0;right:0;top:50%;height:1px;pointer-events:none;
+.road-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr) 318px;
+  grid-template-rows:auto 156px auto;min-width:1780px}
+.road-line{grid-area:2/1/3/9;align-self:center;height:1px;pointer-events:none;
   background:linear-gradient(90deg,rgba(252,212,160,.10),rgba(252,212,160,.62) 6%,rgba(252,212,160,.62) 95%,rgba(252,212,160,.18));
   box-shadow:0 0 18px rgba(252,212,160,.18)}
-.road-col{position:relative;height:100%}
-.road-dot{position:absolute;left:50%;top:calc(50% - 5px);width:10px;height:10px;border-radius:50%;
-  background:var(--champagne);transform:translateX(-50%);
-  box-shadow:0 0 0 5px rgba(252,212,160,.10),0 0 18px rgba(252,212,160,.35)}
-.road-stem{position:absolute;left:50%;width:1px;background:linear-gradient(180deg,rgba(252,212,160,.55),rgba(252,212,160,.18));transform:translateX(-50%)}
-.road-col.up .road-stem{height:72px;bottom:calc(50% + 6px);background:linear-gradient(0deg,rgba(252,212,160,.55),rgba(252,212,160,.18))}
-.road-col.down .road-stem{height:72px;top:calc(50% + 6px)}
-.road-copy{position:absolute;left:2px;right:34px}
-.road-col.up .road-copy{bottom:calc(50% + 78px)}
-.road-col.down .road-copy{top:calc(50% + 78px)}
+.road-copy{grid-row:1;align-self:end;padding:0 34px 0 2px;margin-bottom:10px}
+.road-copy.down{grid-row:3;align-self:start;margin-top:10px;margin-bottom:0}
 .road-copy h3{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--champagne);line-height:1.25}
 .road-copy p{margin:0;font-size:13.5px;line-height:1.75;color:rgba(252,212,160,.64);font-weight:300;overflow-wrap:break-word}
-.road-final{position:relative;height:100%;display:flex;align-items:center}
-.road-box{position:relative;z-index:2;width:100%;border:1px solid rgba(252,212,160,.55);border-radius:16px;
+.road-stem{grid-row:2;align-self:center;justify-self:center;width:1px;height:72px;
+  background:linear-gradient(180deg,rgba(252,212,160,.55),rgba(252,212,160,.18))}
+.road-stem.up{transform:translateY(-36px);background:linear-gradient(0deg,rgba(252,212,160,.55),rgba(252,212,160,.18))}
+.road-stem.down{transform:translateY(36px)}
+.road-dot{grid-row:2;align-self:center;justify-self:center;width:10px;height:10px;border-radius:50%;
+  background:var(--champagne);box-shadow:0 0 0 5px rgba(252,212,160,.10),0 0 18px rgba(252,212,160,.35)}
+.road-box{grid-area:2/8/3/9;align-self:center;position:relative;z-index:2;width:100%;
+  border:1px solid rgba(252,212,160,.55);border-radius:16px;
   background:linear-gradient(180deg,#0b1f2b,#081620);padding:30px 26px;
   box-shadow:0 0 40px rgba(252,212,160,.07),inset 0 1px 0 rgba(255,255,255,.04)}
 .road-box h3{margin:0 0 14px;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.16em;
@@ -901,7 +900,10 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 @media(max-width:900px){
   .road-sec{padding:74px 0 76px}
   .road-scroll{padding:6px 22px 26px}
-  .road-track{height:900px;min-width:1660px;grid-template-columns:repeat(7,1fr) 300px}
+  .road-track{min-width:1660px;grid-template-columns:repeat(7,1fr) 300px;grid-template-rows:auto 138px auto}
+  .road-stem{height:64px}
+  .road-stem.up{transform:translateY(-32px)}
+  .road-stem.down{transform:translateY(32px)}
 }
 </style>
 </head>
@@ -1028,44 +1030,28 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
   <div class="road-scroll">
     <div class="road-track">
       <div class="road-line"></div>
-      <div class="road-col up">
-        <div class="road-copy"><h3>May — The Beginning</h3><p>We began playing soccer for the first time after spending most of our time playing volleyball. The original group consisted of Deniz, Angelo, Taylan, Mohammad, Yusuf, Aryan and Abraham. At this stage, we were simply playing for fun, with no competition in mind.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col down">
-        <div class="road-copy"><h3>June — Expansion</h3><p>More members joined the group. Nawar, Rivansh, Alex and Maisarah played their first matches, with Nawar and Rivansh quickly becoming dominant players.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col up">
-        <div class="road-copy"><h3>July — The Birth of The SFT Files</h3><p>Matches became more competitive, and players began taking the game more seriously. Deniz created what would become The SFT Files, introducing player statistics, ratings and two clubs: Quasaunt FC and Dechamps FC. Multiple awards for soccer-related categories were also introduced.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col down">
-        <div class="road-copy"><h3>August — A Competitive Era</h3><p>Yusuf and Rivansh were removed from The SFT Files. Players became more focused on winning for their respective teams. Deniz also began creating player cards but eventually scrapped the idea in favour of something bigger in the future.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col up">
-        <div class="road-copy"><h3>September — The Birth of RC Ballon d’Or</h3><p>Timmy was introduced under the coaching of Deniz and began playing as a defender for Dechamps FC. Deniz officially revealed the RC Ballon d’Or, an awards ceremony recognising the best players of the year, featuring multiple awards and a Ballon d’Or trophy.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col down">
-        <div class="road-copy"><h3>October — Building the Event</h3><p>Goals and assists statistics were introduced for Nawar and Deniz, the two runners-up for the Ballon d’Or trophy. Deniz also created the official RC Ballon d’Or 2026 website, showcasing nominees, awards and results.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-col up">
-        <div class="road-copy"><h3>November — The Final Countdown</h3><p>The final matches of the year are being played as preparations continue for the December ceremony. The event is set to take place during Activities Week in the school auditorium.</p></div>
-        <div class="road-stem"></div>
-        <div class="road-dot"></div>
-      </div>
-      <div class="road-final">
-        <div class="road-box"><h3>December — The Grand Finale</h3><p>The journey reaches its conclusion with the RC Ballon d’Or 2026 ceremony, celebrating the players, achievements and history of the soccer group.</p></div>
-      </div>
+      <div class="road-copy up" style="grid-column:1"><h3>May — The Beginning</h3><p>We began playing soccer for the first time after spending most of our time playing volleyball. The original group consisted of Deniz, Angelo, Taylan, Mohammad, Yusuf, Aryan and Abraham. At this stage, we were simply playing for fun, with no competition in mind.</p></div>
+      <div class="road-stem up" style="grid-column:1"></div>
+      <div class="road-dot" style="grid-column:1"></div>
+      <div class="road-copy down" style="grid-column:2"><h3>June — Expansion</h3><p>More members joined the group. Nawar, Rivansh, Alex and Maisarah played their first matches, with Nawar and Rivansh quickly becoming dominant players.</p></div>
+      <div class="road-stem down" style="grid-column:2"></div>
+      <div class="road-dot" style="grid-column:2"></div>
+      <div class="road-copy up" style="grid-column:3"><h3>July — The Birth of The SFT Files</h3><p>Matches became more competitive, and players began taking the game more seriously. Deniz created what would become The SFT Files, introducing player statistics, ratings and two clubs: Quasaunt FC and Dechamps FC. Multiple awards for soccer-related categories were also introduced.</p></div>
+      <div class="road-stem up" style="grid-column:3"></div>
+      <div class="road-dot" style="grid-column:3"></div>
+      <div class="road-copy down" style="grid-column:4"><h3>August — A Competitive Era</h3><p>Yusuf and Rivansh were removed from The SFT Files. Players became more focused on winning for their respective teams. Deniz also began creating player cards but eventually scrapped the idea in favour of something bigger in the future.</p></div>
+      <div class="road-stem down" style="grid-column:4"></div>
+      <div class="road-dot" style="grid-column:4"></div>
+      <div class="road-copy up" style="grid-column:5"><h3>September — The Birth of RC Ballon d’Or</h3><p>Timmy was introduced under the coaching of Deniz and began playing as a defender for Dechamps FC. Deniz officially revealed the RC Ballon d’Or, an awards ceremony recognising the best players of the year, featuring multiple awards and a Ballon d’Or trophy.</p></div>
+      <div class="road-stem up" style="grid-column:5"></div>
+      <div class="road-dot" style="grid-column:5"></div>
+      <div class="road-copy down" style="grid-column:6"><h3>October — Building the Event</h3><p>Goals and assists statistics were introduced for Nawar and Deniz, the two runners-up for the Ballon d’Or trophy. Deniz also created the official RC Ballon d’Or 2026 website, showcasing nominees, awards and results.</p></div>
+      <div class="road-stem down" style="grid-column:6"></div>
+      <div class="road-dot" style="grid-column:6"></div>
+      <div class="road-copy up" style="grid-column:7"><h3>November — The Final Countdown</h3><p>The final matches of the year are being played as preparations continue for the December ceremony. The event is set to take place during Activities Week in the school auditorium.</p></div>
+      <div class="road-stem up" style="grid-column:7"></div>
+      <div class="road-dot" style="grid-column:7"></div>
+      <div class="road-box"><h3>December — The Grand Finale</h3><p>The journey reaches its conclusion with the RC Ballon d’Or 2026 ceremony, celebrating the players, achievements and history of the soccer group.</p></div>
     </div>
   </div>
 </section>
