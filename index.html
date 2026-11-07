@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261107T080624">
+<meta name="build" content="20261107T080908">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -2129,14 +2129,7 @@ else boot();
   el.addEventListener("pointerup", end);
   el.addEventListener("pointercancel", end);
   el.addEventListener("pointerleave", function () { if (down) end(); });
-  el.addEventListener("wheel", function (e) {
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    var max = el.scrollWidth - el.clientWidth;
-    if (el.scrollLeft <= 0 && e.deltaY < 0) return;
-    if (el.scrollLeft >= max - 1 && e.deltaY > 0) return;
-    el.scrollLeft += e.deltaY;
-    e.preventDefault();
-  }, { passive: false });
+  /* vertical wheel is left alone on purpose: only horizontal swipes / drag pan the timeline */
 })();
 </script>
 </body>
