@@ -901,29 +901,29 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
   .road-stem.down{transform:translateY(32px)}
 }
 
-/* ---------- results page ---------- */
+/* ---- results ---- */
 
-.r-wrap{max-width:1000px;margin:0 auto;padding:64px 24px 90px}
-.r-wrap h1{font-family:var(--display);font-size:clamp(1.8rem,4.4vw,2.9rem);text-transform:uppercase;line-height:1;margin:12px 0 8px}
-.r-sub{color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
-.r-cat{margin-top:38px;padding-top:22px;border-top:1px solid rgba(252,212,160,.14)}
+.r-wrap{max-width:920px;margin:0 auto;padding:60px 24px 90px}
+.r-wrap h1{font-family:var(--display);font-size:clamp(1.8rem,4.4vw,2.8rem);text-transform:uppercase;line-height:1;margin:12px 0 8px}
+.r-sub{color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.r-cat{margin-top:36px;padding-top:20px;border-top:1px solid rgba(252,212,160,.14)}
 .r-cat h3{font-family:var(--display);text-transform:uppercase;letter-spacing:.1em;font-size:1rem;margin:0 0 14px}
 .r-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:9px 0}
 .r-name{font-size:13.5px;color:rgba(252,212,160,.9)}
 .r-num{font-family:var(--display);font-size:15px;color:var(--champagne)}
-.r-bar{grid-column:1/-1;height:3px;border-radius:2px;background:rgba(252,212,160,.14);overflow:hidden;margin-top:-4px}
+.r-bar{grid-column:1/-1;height:3px;border-radius:2px;background:rgba(252,212,160,.14);overflow:hidden;margin-top:-2px}
 .r-fill{height:100%;background:linear-gradient(90deg,rgba(252,212,160,.5),var(--champagne))}
-.r-gate{max-width:420px;margin:120px auto;text-align:center;padding:0 24px}
+.r-gate{max-width:400px;margin:110px auto;text-align:center;padding:0 24px}
 .r-gate input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(252,212,160,.25);
   background:rgba(255,255,255,.02);color:var(--text);font:inherit;text-align:center;letter-spacing:.2em}
 .r-gate button{margin-top:14px;width:100%;padding:14px;border-radius:999px;border:1px solid var(--champagne);
-  background:var(--champagne);color:#0a1a24;font:inherit;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;cursor:pointer}
+  background:var(--champagne);color:#0a1a24;font:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="r-gate" id="gate">
   <div class="eyebrow" style="justify-content:center">Private</div>
-  <h1 style="font-family:var(--display);text-transform:uppercase;font-size:1.6rem;margin:14px 0 20px">Results</h1>
+  <h1 style="font-family:var(--display);text-transform:uppercase;font-size:1.5rem;margin:14px 0 20px">Results</h1>
   <input id="pass" type="password" placeholder="Passcode" autocomplete="off">
   <button id="go">Open results</button>
   <p id="err" style="color:#ff8b7e;font-size:12px;margin-top:12px;min-height:16px"></p>
@@ -931,9 +931,9 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 <div class="r-wrap" id="out" hidden></div>
 
 <script>
+const VOTE = [{"cat": "RC Ballon d'Or", "opts": [{"label": "Deniz", "sub": "Quasaunt FC"}, {"label": "Nawar", "sub": "Dechamps FC"}, {"label": "Mohammad", "sub": "Quasaunt FC"}, {"label": "Taylan", "sub": "Dechamps FC"}, {"label": "Rivansh", "sub": "Dechamps FC"}]}, {"cat": "Puskás Award", "opts": [{"label": "Nawar", "sub": "Dechamps FC"}, {"label": "Deniz", "sub": "Quasaunt FC"}, {"label": "Taylan", "sub": "Dechamps FC"}]}, {"cat": "Most Improved · Rising Star", "opts": [{"label": "Timmy", "sub": "Dechamps FC"}, {"label": "Alex", "sub": "Dechamps FC"}, {"label": "Aryan", "sub": "Quasaunt FC"}]}, {"cat": "The Corinthian Award", "opts": [{"label": "Mohammad", "sub": "Quasaunt FC"}, {"label": "Deniz", "sub": "Quasaunt FC"}, {"label": "Alex", "sub": "Dechamps FC"}]}, {"cat": "Club of the Year", "opts": [{"label": "Quasaunt FC", "sub": "Club"}, {"label": "Dechamps FC", "sub": "Club"}]}];
 const ENDPOINT = "https://script.google.com/macros/s/AKfycbxYil3gMut6ZGi1Sr9Uj-bXp7iWdv3dlBDQRbG5N_YAcJDG_Lo8rWOyErzl5m0hUtgv/exec";
 const KEY = "rcbdo2026-live";
-const CATS = ["Puskás Award", "Golden Boot", "Playmaker Award", "Golden Glove", "RC Ballon d'Or", "Most Improved · Rising Star", "The Corinthian Award", "Club of the Year"];
 
 document.getElementById("go").addEventListener("click", load);
 document.getElementById("pass").addEventListener("keydown", function (e) { if (e.key === "Enter") load(); });
@@ -941,35 +941,33 @@ document.getElementById("pass").addEventListener("keydown", function (e) { if (e
 function load() {
   const pass = document.getElementById("pass").value.trim();
   if (pass !== KEY) { document.getElementById("err").textContent = "Wrong passcode."; return; }
-  document.getElementById("err").textContent = "";
   document.getElementById("gate").hidden = true;
-  document.getElementById("out").hidden = false;
-  document.getElementById("out").innerHTML = '<h1>Live results</h1><p class="r-sub">Loading…</p>';
+  const out = document.getElementById("out");
+  out.hidden = false;
+  out.innerHTML = '<h1>Live results</h1><p class="r-sub">Loading…</p>';
   fetch(ENDPOINT + "?key=" + encodeURIComponent(KEY) + "&t=" + Date.now())
     .then(function (r) { return r.json(); })
     .then(render)
-    .catch(function (e) {
-      document.getElementById("out").innerHTML = '<h1>Live results</h1><p class="r-sub">Could not reach the vote sheet. ' + e + '</p>';
-    });
+    .catch(function (e) { out.innerHTML = '<h1>Live results</h1><p class="r-sub">Could not read the vote sheet.</p>'; });
 }
 
 function render(d) {
-  if (!d || !d.ok) { document.getElementById("out").innerHTML = '<h1>Live results</h1><p class="r-sub">Blocked: ' + JSON.stringify(d) + '</p>'; return; }
+  const out = document.getElementById("out");
+  if (!d || !d.ok) { out.innerHTML = '<h1>Live results</h1><p class="r-sub">Blocked: ' + JSON.stringify(d) + '</p>'; return; }
   const tally = d.tally || {};
-  let html = '<h1>Live results</h1><p class="r-sub">' + d.ballots + ' ballot lines counted</p>';
-  CATS.forEach(function (cat) {
-    const t = tally[cat] || {};
-    const rows = Object.keys(t).map(function (k) { return [k, t[k]]; }).sort(function (a, b) { return b[1] - a[1]; });
-    const max = rows.length ? rows[0][1] : 1;
-    html += '<div class="r-cat"><h3>' + cat + '</h3>';
-    if (!rows.length) html += '<p class="r-sub">No votes yet</p>';
-    rows.forEach(function (r, i) {
-      html += '<div class="r-row"><span class="r-name">' + (i === 0 ? '★ ' : '') + r[0] + '</span><span class="r-num">' + r[1] + '</span>' +
-              '<div class="r-bar"><div class="r-fill" style="width:' + Math.round(r[1] / max * 100) + '%"></div></div></div>';
+  let html = '<h1>Live results</h1><p class="r-sub">' + d.ballots + ' vote rows counted</p>';
+  VOTE.forEach(function (c) {
+    const t = tally[c.cat] || {};
+    const opts = c.opts.map(function (o) { return [o.label, t[o.label] || 0]; }).sort(function (a, b) { return b[1] - a[1]; });
+    const max = Math.max(1, opts.length ? opts[0][1] : 1);
+    html += '<div class="r-cat"><h3>' + c.cat + '</h3>';
+    opts.forEach(function (r, i) {
+      html += '<div class="r-row"><span class="r-name">' + (i === 0 && r[1] > 0 ? '★ ' : '') + r[0] + '</span><span class="r-num">' + r[1] + '</span>' +
+        '<div class="r-bar"><div class="r-fill" style="width:' + Math.round(r[1] / max * 100) + '%"></div></div></div>';
     });
     html += '</div>';
   });
-  document.getElementById("out").innerHTML = html;
+  out.innerHTML = html;
 }
 </script>
 </body>
