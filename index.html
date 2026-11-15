@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261029T011649">
+<meta name="build" content="20261115T111506">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -905,6 +905,47 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
   .road-stem.up{transform:translateY(-32px)}
   .road-stem.down{transform:translateY(32px)}
 }
+
+/* ================= IN-PAGE VOTING ================= */
+.vote-overlay{position:fixed;inset:0;z-index:300;background:var(--ink);overflow-y:auto;display:none;-webkit-overflow-scrolling:touch}
+.vote-overlay.open{display:block}
+body.voting{overflow:hidden}
+.vo-wrap{max-width:880px;margin:0 auto;padding:0 22px 130px}
+.vo-top{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:16px 0;background:linear-gradient(180deg,var(--ink) 70%,rgba(8,22,31,.9));border-bottom:1px solid var(--line-soft)}
+.vo-top b{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--champagne)}
+.vo-x{appearance:none;background:transparent;border:1px solid rgba(252,212,160,.4);color:var(--champagne);
+  width:34px;height:34px;border-radius:50%;font-size:17px;line-height:1;cursor:pointer}
+.vo-x:hover{background:rgba(252,212,160,.12)}
+.vo-head{padding:40px 0 14px}
+.vo-head h2{font-family:var(--display);font-size:clamp(1.7rem,4.4vw,2.6rem);text-transform:uppercase;line-height:1;margin:12px 0 12px}
+.vo-cat{padding:26px 0 4px;border-bottom:1px solid rgba(252,212,160,.1)}
+.vo-cat h3{font-family:var(--display);font-size:1rem;text-transform:uppercase;letter-spacing:.1em;margin:0 0 4px}
+.vo-cat p{margin:0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.vo-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px;margin:14px 0 24px}
+.vo-opt{display:flex;align-items:center;gap:10px;text-align:left;padding:12px 14px;border:1px solid rgba(252,212,160,.2);
+  border-radius:11px;background:rgba(255,255,255,.015);color:var(--text);font:inherit;cursor:pointer;transition:.18s}
+.vo-opt:hover{border-color:rgba(252,212,160,.45);background:rgba(252,212,160,.05)}
+.vo-opt.on{border-color:var(--champagne);background:rgba(252,212,160,.1)}
+.vo-opt b{display:block;font-weight:500;font-size:13px;line-height:1.3}
+.vo-opt span{display:block;margin-top:2px;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.vo-opt i{margin-left:auto;width:13px;height:13px;flex:0 0 13px;border-radius:50%;border:1px solid rgba(252,212,160,.35)}
+.vo-opt.on i{background:var(--champagne);border-color:var(--champagne)}
+.vo-field{margin:28px 0 0}
+.vo-field label{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.vo-field input{width:100%;max-width:380px;padding:12px 15px;border-radius:11px;border:1px solid rgba(252,212,160,.22);
+  background:rgba(255,255,255,.02);color:var(--text);font:inherit;font-size:14px}
+.vo-field input:focus{outline:none;border-color:var(--champagne)}
+.vo-bar{position:fixed;left:0;right:0;bottom:0;z-index:4;padding:13px 22px;background:rgba(5,13,19,.95);
+  backdrop-filter:blur(18px);border-top:1px solid rgba(252,212,160,.18)}
+.vo-bar-in{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.vo-count{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.vo-btn{appearance:none;border:1px solid var(--champagne);background:var(--champagne);color:#0a1a24;padding:12px 24px;
+  border-radius:999px;font:inherit;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer}
+.vo-btn[disabled]{opacity:.4;cursor:not-allowed}
+.vo-done{max-width:600px;margin:90px auto;text-align:center}
+.vo-done h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.5rem);text-transform:uppercase;margin:14px 0 12px}
+.vo-done p{color:var(--muted);font-size:13px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -2118,6 +2159,114 @@ else boot();
   el.addEventListener("pointercancel", end);
   el.addEventListener("pointerleave", function () { if (down) end(); });
   /* vertical wheel is left alone on purpose: only horizontal swipes / drag pan the timeline */
+})();
+</script>
+
+<!-- ================= IN-PAGE VOTING ================= -->
+<div class="vote-overlay" id="voteOverlay" role="dialog" aria-modal="true" aria-label="Cast my vote" hidden>
+  <div class="vo-wrap">
+    <div class="vo-top"><b>RC Ballon d’Or 2026 · Voting</b><button class="vo-x" id="voClose" aria-label="Close voting">×</button></div>
+    <div class="vo-head">
+      <div class="eyebrow" style="justify-content:flex-start">Voting</div>
+      <h2>Cast my vote</h2>
+      <p class="lead">Five awards are decided by vote — every other trophy is settled by the season’s statistics. Pick one per award.</p>
+    </div>
+    <div id="voCats"></div>
+    <div class="vo-field">
+      <label for="voVoter">Your name (optional)</label>
+      <input id="voVoter" autocomplete="off" placeholder="e.g. Deniz">
+    </div>
+  </div>
+  <div class="vo-bar">
+    <div class="vo-bar-in">
+      <span class="vo-count" id="voCount"></span>
+      <button class="vo-btn" id="voSubmit" disabled>Submit ballot</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* in-page voting */
+(function () {
+  const VOTE = [
+    { cat: "RC Ballon d'Or", opts: ["Deniz", "Nawar", "Mohammad", "Taylan", "Rivansh"] },
+    { cat: "Puskás Award", opts: ["Nawar", "Deniz", "Taylan"] },
+    { cat: "Most Improved · Rising Star", opts: ["Timmy", "Alex", "Aryan"] },
+    { cat: "The Corinthian Award", opts: ["Mohammad", "Deniz", "Alex"] },
+    { cat: "Club of the Year", opts: ["Quasaunt FC", "Dechamps FC"] }
+  ];
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxYil3gMut6ZGi1Sr9Uj-bXp7iWdv3dlBDQRbG5N_YAcJDG_Lo8rWOyErzl5m0hUtgv/exec";
+  const ov = document.getElementById("voteOverlay");
+  if (!ov) return;
+  let built = false, picked = {};
+
+  function build() {
+    if (built) return; built = true;
+    const wrap = document.getElementById("voCats");
+    VOTE.forEach(function (c) {
+      const d = document.createElement("div");
+      d.className = "vo-cat";
+      d.innerHTML = "<h3>" + c.cat + "</h3><p>" + (c.cat === "Club of the Year" ? "One club" : "One nominee") + "</p>" +
+        '<div class="vo-opts">' + c.opts.map(function (o) {
+          return '<button class="vo-opt" data-cat="' + c.cat.replace(/"/g, "&quot;") + '" data-name="' + o + '"><span><b>' + o + '</b></span><i></i></button>';
+        }).join("") + "</div>";
+      wrap.appendChild(d);
+    });
+    refresh();
+  }
+
+  function refresh() {
+    const n = Object.keys(picked).length;
+    const cnt = document.getElementById("voCount");
+    if (cnt) cnt.textContent = n + " of " + VOTE.length + " picked";
+    const btn = document.getElementById("voSubmit");
+    if (btn) btn.disabled = n < VOTE.length;
+  }
+
+  function open(e) {
+    if (e) e.preventDefault();
+    build();
+    ov.hidden = false; ov.classList.add("open");
+    document.body.classList.add("voting");
+    ov.scrollTop = 0;
+  }
+  function close() {
+    ov.classList.remove("open"); ov.hidden = true;
+    document.body.classList.remove("voting");
+  }
+
+  document.addEventListener("click", function (e) {
+    const trigger = e.target.closest('a[href="vote/"], [data-open-vote]');
+    if (trigger) { open(e); return; }
+    const opt = e.target.closest(".vo-opt");
+    if (opt) {
+      picked[opt.dataset.cat] = opt.dataset.name;
+      opt.parentNode.querySelectorAll(".vo-opt").forEach(function (b) { b.classList.toggle("on", b === opt); });
+      refresh();
+      return;
+    }
+    if (e.target.closest("#voClose")) { close(); return; }
+  });
+
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && ov.classList.contains("open")) close(); });
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest("#voSubmit")) return;
+    e.preventDefault();
+    const votes = VOTE.filter(function (c) { return picked[c.cat]; }).map(function (c) { return { category: c.cat, nominee: picked[c.cat] }; });
+    const body = JSON.stringify({ voter: (document.getElementById("voVoter").value || "").trim(), votes: votes, ballotId: "b-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8) });
+    const btn = e.target.closest("#voSubmit");
+    btn.disabled = true; btn.textContent = "Sending…";
+    fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+      .then(done).catch(done);
+  });
+
+  function done() {
+    ov.querySelector(".vo-wrap").innerHTML = '<div class="vo-top"><b>RC Ballon d’Or 2026 · Voting</b><button class="vo-x" id="voClose" aria-label="Close">×</button></div>' +
+      '<div class="vo-done"><div class="eyebrow" style="justify-content:center">Ballot received</div><h2>Thank you</h2>' +
+      '<p>Your votes are in the count. Results are announced at the ceremony.</p></div>';
+    const bar = ov.querySelector(".vo-bar"); if (bar) bar.remove();
+  }
 })();
 </script>
 </body>
