@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261115T113255">
+<meta name="build" content="20261115T113810">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -908,70 +908,83 @@ footer{padding:72px 0 0;position:relative;overflow:hidden;border-top:1px solid r
 
 /* ================= IN-PAGE VOTING ================= */
 .vote-overlay{position:fixed;inset:0;z-index:300;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch;
-  background:
-    radial-gradient(1100px 700px at 82% -10%,rgba(28,74,96,.6),transparent 62%),
-    radial-gradient(900px 600px at 4% 6%,rgba(14,46,64,.55),transparent 60%),
-    var(--ink)}
-.vote-overlay.open{display:block;animation:voFade .25s ease both}
+  background:#080f16}
+.vote-overlay.open{display:block;animation:voFade .22s ease both}
 @keyframes voFade{from{opacity:0}to{opacity:1}}
 body.voting{overflow:hidden}
-.vo-wrap{max-width:840px;margin:0 auto;padding:0 24px 140px;animation:voRise .3s cubic-bezier(.2,.7,.25,1) both}
-@keyframes voRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.vo-top{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:14px 0;background:linear-gradient(180deg,rgba(8,22,31,.98) 65%,rgba(8,22,31,0))}
-.vo-top b{font-family:var(--display);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--champagne)}
-.vo-x{appearance:none;background:rgba(252,212,160,.06);border:1px solid rgba(252,212,160,.35);color:var(--champagne);
-  width:36px;height:36px;border-radius:50%;font-size:18px;line-height:1;cursor:pointer;transition:.2s;flex:0 0 36px}
-.vo-x:hover{background:rgba(252,212,160,.16);transform:rotate(90deg)}
-.vo-step{margin:16px 0 0;display:flex;align-items:center;gap:14px}
-.vo-step span{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.vo-track{flex:1;height:2px;background:rgba(252,212,160,.14);border-radius:2px;overflow:hidden}
-.vo-track i{display:block;height:100%;width:20%;background:linear-gradient(90deg,rgba(252,212,160,.5),var(--champagne));
-  transition:width .4s cubic-bezier(.3,.8,.3,1)}
-.vo-card{margin-top:26px;padding:30px 30px 26px;border:1px solid rgba(252,212,160,.16);border-radius:18px;
-  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0));
-  animation:voIn .32s cubic-bezier(.2,.7,.25,1) both}
-@keyframes voIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.vo-card .vo-num{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-.vo-card h2{font-family:var(--display);font-size:clamp(1.5rem,3.8vw,2.15rem);text-transform:uppercase;line-height:1.02;
-  letter-spacing:-.01em;margin:10px 0 8px}
-.vo-card .vo-sub{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 22px}
-.vo-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.vo-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:14px;border:1px solid rgba(252,212,160,.18);
-  border-radius:14px;background:rgba(255,255,255,.014);color:var(--text);font:inherit;cursor:pointer;
-  transition:border-color .18s,background .18s,transform .18s}
-.vo-opt:hover{border-color:rgba(252,212,160,.45);background:rgba(252,212,160,.05);transform:translateY(-1px)}
-.vo-opt.on{border-color:var(--champagne);background:rgba(252,212,160,.1);box-shadow:0 0 26px rgba(252,212,160,.1)}
-.vo-av{width:34px;height:34px;flex:0 0 34px;border-radius:50%;display:grid;place-items:center;
-  border:1px solid rgba(252,212,160,.32);background:rgba(252,212,160,.07);
-  font-family:var(--display);font-size:11px;color:var(--champagne)}
-.vo-opt.on .vo-av{background:var(--champagne);color:#0a1a24;border-color:var(--champagne)}
-.vo-tx{min-width:0;flex:1}
-.vo-opt b{display:block;font-weight:500;font-size:13.5px;line-height:1.25}
-.vo-opt small{display:block;margin-top:3px;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.vo-opt em{display:block;margin-top:6px;font-style:normal;font-family:var(--display);font-size:11px;color:rgba(252,212,160,.85)}
-.vo-tick{width:13px;height:13px;flex:0 0 13px;border-radius:50%;border:1px solid rgba(252,212,160,.3)}
-.vo-opt.on .vo-tick{background:var(--champagne);border-color:var(--champagne)}
-.vo-bar{position:fixed;left:0;right:0;bottom:0;z-index:9;padding:13px 24px;background:rgba(5,13,19,.95);
-  backdrop-filter:blur(20px) saturate(130%);border-top:1px solid rgba(252,212,160,.16)}
-.vo-bar-in{max-width:840px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.vo-count{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.vo-nav{display:flex;align-items:center;gap:10px;margin-left:auto}
-.vo-ghost{appearance:none;background:transparent;border:1px solid rgba(252,212,160,.35);color:var(--champagne);
-  padding:12px 20px;border-radius:999px;font:inherit;font-size:10px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
-.vo-ghost:hover{background:rgba(252,212,160,.1)}
-.vo-btn{appearance:none;border:1px solid var(--champagne);background:var(--champagne);color:#0a1a24;padding:13px 26px;
-  border-radius:999px;font:inherit;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
-  cursor:pointer;transition:transform .18s,box-shadow .18s,opacity .18s;white-space:nowrap}
-.vo-btn:hover:not([disabled]){transform:translateY(-1px);box-shadow:0 8px 24px rgba(252,212,160,.22)}
-.vo-btn[disabled]{opacity:.35;cursor:not-allowed}
-.vo-done{max-width:560px;margin:96px auto;text-align:center;animation:voRise .4s cubic-bezier(.2,.7,.25,1) both}
-.vo-done h2{font-family:var(--display);font-size:clamp(1.9rem,4.4vw,2.7rem);text-transform:uppercase;margin:14px 0 12px;line-height:1}
-.vo-done p{color:var(--muted);font-size:13px;line-height:1.7}
-@media(max-width:720px){
-  .vo-wrap{padding:0 16px 132px}
-  .vo-card{padding:24px 18px 20px;border-radius:16px}
-  .vo-opts{grid-template-columns:1fr;gap:9px}
+.vx{max-width:1120px;margin:0 auto;padding:0 26px}
+.vx-nav{position:sticky;top:0;z-index:20;background:#070d13;border-bottom:1px solid rgba(252,212,160,.14)}
+.vx-nav-in{max-width:1120px;margin:0 auto;padding:0 26px;height:46px;display:flex;align-items:center;justify-content:center;gap:26px;position:relative}
+.vx-nav-in a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(252,212,160,.62)}
+.vx-nav-in a:hover{color:var(--champagne)}
+.vx-nav-in a.on{color:#f6e7cf}
+.vx-close{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;
+  background:transparent;border:0;color:rgba(252,212,160,.7);font-size:20px;line-height:1;cursor:pointer}
+.vx-close:hover{color:var(--champagne)}
+.vx-sub{border-bottom:1px solid rgba(252,212,160,.12);background:#080f16;position:sticky;top:46px;z-index:19}
+.vx-sub-in{max-width:1120px;margin:0 auto;padding:0 26px;height:42px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.vx-arrow{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;padding:0;color:rgba(252,212,160,.6);
+  font:inherit;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+.vx-arrow:hover{color:var(--champagne)}
+.vx-arrow[disabled]{opacity:.22;cursor:default}
+.vx-arrow.next{justify-self:end}
+.vx-dots{display:flex;gap:9px;justify-content:center}
+.vx-dots i{width:7px;height:7px;transform:rotate(45deg);border:1px solid rgba(252,212,160,.4);display:block;transition:.2s}
+.vx-dots i.on{background:var(--champagne);border-color:var(--champagne)}
+.vx-hero{text-align:center;padding:34px 0 8px}
+.vx-hero h2{font-family:var(--display);font-size:clamp(2rem,5.6vw,3.2rem);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--champagne);line-height:1;margin:0 0 16px}
+.vx-more{display:inline-block;border:1px solid rgba(252,212,160,.45);color:rgba(252,212,160,.85);padding:8px 16px;
+  font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;background:transparent;cursor:pointer}
+.vx-more:hover{background:rgba(252,212,160,.08)}
+.vx-body{padding:26px 0 0}
+.vx-cat{max-width:1120px;margin:0 auto;padding:0 26px}
+.vx-eyebrow{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:rgba(252,212,160,.5);margin-bottom:8px}
+.vx-title{font-family:var(--display);font-size:clamp(1.35rem,3.2vw,1.95rem);letter-spacing:.02em;text-transform:uppercase;
+  color:var(--champagne);line-height:1.05;margin:0}
+.vx-by{margin:10px 0 0;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(252,212,160,.45);
+  display:flex;align-items:center;gap:8px}
+.vx-by b{color:rgba(252,212,160,.8);font-weight:600;letter-spacing:.18em}
+.vx-desc{margin:12px 0 0;max-width:58ch;font-size:11.5px;line-height:1.7;color:rgba(252,212,160,.55);font-weight:300}
+.vx-cards{display:flex;gap:12px;margin:24px 0 0;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.vx-cards::-webkit-scrollbar{display:none}
+.vx-card{flex:0 0 168px;border:1px solid rgba(252,212,160,.22);background:linear-gradient(165deg,#12222e,#0a141c);
+  cursor:pointer;padding:0;position:relative;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.vx-card:hover{border-color:rgba(252,212,160,.5);transform:translateY(-2px)}
+.vx-card.on{border-color:var(--champagne);box-shadow:0 0 0 1px var(--champagne) inset}
+.vx-face{height:150px;display:grid;place-items:center;position:relative;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 15%,rgba(252,212,160,.10),transparent 65%)}
+.vx-face span{font-family:var(--display);font-size:34px;letter-spacing:.06em;color:rgba(252,212,160,.75)}
+.vx-card.on .vx-face span{color:var(--champagne)}
+.vx-plus{position:absolute;right:6px;top:6px;width:20px;height:20px;display:grid;place-items:center;
+  border:1px solid rgba(252,212,160,.5);background:rgba(8,15,22,.7);color:var(--champagne);font-size:12px;line-height:1}
+.vx-card.on .vx-plus{background:var(--champagne);color:#0a1a24;border-color:var(--champagne)}
+.vx-name{background:var(--champagne);color:#0a1a24;font-size:8.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;padding:9px 6px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vx-meta{margin:9px 0 0;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(252,212,160,.42);
+  padding:0 2px 10px}
+.vx-foot{margin:44px 0 0;border-top:1px solid rgba(252,212,160,.12);padding:16px 0 34px}
+.vx-foot-row{max-width:1120px;margin:0 auto;padding:0 26px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
+.vx-link{background:transparent;border:0;padding:0;color:rgba(252,212,160,.55);font:inherit;font-size:9px;
+  letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+.vx-link:hover{color:var(--champagne)}
+.vx-link.right{justify-self:end}
+.vx-fill{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(252,212,160,.4);text-align:center}
+.vx-submit{display:block;margin:20px auto 0;background:transparent;border:1px solid rgba(252,212,160,.5);color:rgba(252,212,160,.9);
+  padding:12px 46px;font:inherit;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.vx-submit:hover:not([disabled]){background:rgba(252,212,160,.1);color:var(--champagne)}
+.vx-submit[disabled]{opacity:.3;cursor:not-allowed}
+.vx-done{max-width:560px;margin:110px auto;text-align:center;padding:0 24px}
+.vx-done h2{font-family:var(--display);font-size:clamp(1.8rem,4.4vw,2.6rem);text-transform:uppercase;color:var(--champagne);margin:14px 0 12px}
+.vx-done p{color:rgba(252,212,160,.55);font-size:12.5px;line-height:1.7}
+@media(max-width:640px){
+  .vx,.vx-nav-in,.vx-sub-in,.vx-cat,.vx-foot-row{padding-left:16px;padding-right:16px}
+  .vx-nav-in{gap:14px;height:44px}
+  .vx-nav-in a{font-size:8.5px;letter-spacing:.14em}
+  .vx-card{flex:0 0 132px}
+  .vx-face{height:118px}
+  .vx-face span{font-size:27px}
+  .vx-hero{padding:24px 0 4px}
 }
 </style>
 </head>
@@ -2190,97 +2203,78 @@ else boot();
 </script>
 
 <!-- ================= IN-PAGE VOTING ================= -->
-<div class="vote-overlay" id="voteOverlay" role="dialog" aria-modal="true" aria-label="Cast my vote" hidden>
-  <div class="vo-wrap">
-    <div class="vo-top"><b>RC Ballon d’Or 2026 · Voting</b><button class="vo-x" id="voClose" aria-label="Close voting">×</button></div>
-    <div class="vo-head">
-      <div class="eyebrow" style="justify-content:flex-start">Voting</div>
-      <h2>Cast my vote</h2>
-      <p class="lead">Five awards are decided by vote — every other trophy is settled by the season’s statistics. Pick one per award.</p>
-    </div>
-    <div class="vo-prog"><i id="voProg"></i></div>
-    <div id="voCats"></div>
-    <div class="vo-field">
-      <label for="voVoter">Your name (optional)</label>
-      <input id="voVoter" autocomplete="off" placeholder="e.g. Deniz">
-    </div>
-  </div>
-  <div class="vo-bar">
-    <div class="vo-bar-in">
-      <span class="vo-count" id="voCount"></span>
-      <button class="vo-btn" id="voSubmit" disabled>Submit ballot</button>
-    </div>
-  </div>
-</div>
+<div class="vote-overlay" id="voteOverlay" role="dialog" aria-modal="true" aria-label="Cast my vote" hidden></div>
 
 <script>
-/* in-page voting — one award at a time, Ballon d'Or last */
+/* in-page voting — one award at a time, RC Ballon d'Or last */
 (function () {
-  const VOTE = [
+  var VOTE = [
     { cat: "Pusk\u00e1s Award", opts: ["Nawar", "Deniz", "Taylan"], note: "Goal of the season" },
-    { cat: "Most Improved \u00b7 Rising Star", opts: ["Timmy", "Alex", "Aryan"], note: "Biggest improver" },
-    { cat: "The Corinthian Award", opts: ["Mohammad", "Deniz", "Alex"], note: "Sportsmanship" },
-    { cat: "Club of the Year", opts: ["Quasaunt FC", "Dechamps FC"], note: "Club of the season" },
-    { cat: "RC Ballon d'Or", opts: ["Deniz", "Nawar", "Mohammad", "Taylan", "Rivansh"], note: "The main award" }
+    { cat: "Most Improved \u00b7 Rising Star", opts: ["Timmy", "Alex", "Aryan"], note: "Biggest improver of the season" },
+    { cat: "The Corinthian Award", opts: ["Mohammad", "Deniz", "Alex"], note: "Sportsmanship, leadership and respect" },
+    { cat: "Club of the Year", opts: ["Quasaunt FC", "Dechamps FC"], note: "The club that set the standard" },
+    { cat: "RC Ballon d'Or", opts: ["Deniz", "Nawar", "Mohammad", "Taylan", "Rivansh"], note: "The most outstanding footballer of the season" }
   ];
-  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxYil3gMut6ZGi1Sr9Uj-bXp7iWdv3dlBDQRbG5N_YAcJDG_Lo8rWOyErzl5m0hUtgv/exec";
-  const STORE = "rcbdo-voted-v1";
-
-  const ov = document.getElementById("voteOverlay");
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbxYil3gMut6ZGi1Sr9Uj-bXp7iWdv3dlBDQRbG5N_YAcJDG_Lo8rWOyErzl5m0hUtgv/exec";
+  var STORE = "rcbdo-voted-v1";
+  var ov = document.getElementById("voteOverlay");
   if (!ov) return;
-  let step = 0;
-  const picked = {};
+  var step = 0, picked = {};
 
   function initials(name) {
     return name.trim().split(/\s+/).slice(0, 2).map(function (w) { return w[0]; }).join("").toUpperCase();
   }
-  function profile(name) {
-    const list = (typeof DATA !== "undefined" && DATA && DATA.nominees) ? DATA.nominees : [];
-    const n = list.filter(function (x) { return x.name === name; })[0];
-    if (!n) return { sub: "Club", stat: "" };
-    const stat = (n.stats || []).map(function (x) { return x.value + " " + x.label; }).join("  \u00b7  ");
-    return { sub: n.position + " \u00b7 " + n.team, stat: stat };
+  function prof(name) {
+    var list = (typeof DATA !== "undefined" && DATA && DATA.nominees) ? DATA.nominees : [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].name === name) {
+        return { meta: list[i].position + " \u00b7 " + list[i].team };
+      }
+    }
+    return { meta: "Club" };
   }
-
-  function voted() {
-    try { return !!localStorage.getItem(STORE); } catch (e) { return false; }
-  }
+  function voted() { try { return !!localStorage.getItem(STORE); } catch (e) { return false; } }
+  function esc(x) { return String(x).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
 
   function render() {
-    const c = VOTE[step], last = step === VOTE.length - 1;
-    const wrap = ov.querySelector(".vo-wrap");
-    wrap.innerHTML =
-      '<div class="vo-top"><b>RC Ballon d\u2019Or 2026 \u00b7 Voting</b><button class="vo-x" id="voClose" aria-label="Close">\u00d7</button></div>' +
-      '<div class="vo-step"><span>' + (step + 1) + ' / ' + VOTE.length + '</span>' +
-        '<div class="vo-track"><i style="width:' + Math.round((step + 1) / VOTE.length * 100) + '%"></i></div></div>' +
-      '<div class="vo-card"><div class="vo-num">Award ' + (step + 1) + ' of ' + VOTE.length + '</div>' +
-        '<h2>' + c.cat + '</h2><p class="vo-sub">' + c.note + ' \u00b7 ' +
-        (c.cat === "Club of the Year" ? "pick a club" : "pick a player") + '</p>' +
-        '<div class="vo-opts">' + c.opts.map(function (o) {
-          const p = profile(o);
-          return '<button class="vo-opt' + (picked[c.cat] === o ? ' on' : '') + '" data-name="' + o + '">' +
-            '<span class="vo-av">' + initials(o) + '</span>' +
-            '<span class="vo-tx"><b>' + o + '</b><small>' + p.sub + '</small>' + (p.stat ? '<em>' + p.stat + '</em>' : '') + '</span>' +
-            '<i class="vo-tick"></i></button>';
-        }).join("") + '</div></div>' +
-      '<div class="vo-bar"><div class="vo-bar-in"><span class="vo-count">' + Object.keys(picked).length + ' of ' + VOTE.length + ' picked</span>' +
-        '<div class="vo-nav">' + (step > 0 ? '<button class="vo-ghost" id="voBack">Back</button>' : '') +
-        '<button class="vo-btn" id="voNext"' + (picked[c.cat] ? '' : ' disabled') + '>' +
-        (last ? 'Submit ballot' : 'Next') + '</button></div></div></div>';
-  }
+    var c = VOTE[step];
+    var dots = VOTE.map(function (_, i) {
+      return '<i class="' + (i <= step ? "on" : "") + '"></i>';
+    }).join("");
+    var cards = c.opts.map(function (o) {
+      var p = prof(o);
+      return '<button class="vx-card' + (picked[c.cat] === o ? " on" : "") + '" data-name="' + esc(o) + '">' +
+        '<span class="vx-face"><span>' + esc(initials(o)) + '</span><i class="vx-plus">' + (picked[c.cat] === o ? "\u2713" : "+") + "</i></span>" +
+        '<span class="vx-name">' + esc(o) + "</span>" +
+        '<span class="vx-meta">' + esc(p.meta) + "</span></button>";
+    }).join("");
 
-  function paint() {
-    const c = VOTE[step];
-    ov.querySelectorAll(".vo-opt").forEach(function (b) {
-      b.classList.toggle("on", picked[c.cat] === b.dataset.name);
-    });
-    const cnt = ov.querySelector(".vo-count");
-    if (cnt) cnt.textContent = Object.keys(picked).length + " of " + VOTE.length + " picked";
-    const next = ov.querySelector("#voNext");
-    if (next) {
-      next.disabled = !picked[c.cat];
-      next.textContent = step === VOTE.length - 1 ? "Submit ballot" : "Next";
-    }
+    ov.innerHTML =
+      '<div class="vx-nav"><div class="vx-nav-in">' +
+        '<a href="#" data-vx-nav="home">Home</a><a class="on">Vote</a>' +
+        '<a href="#awards" data-vx-nav="awards">Awards</a>' +
+        '<a href="#contenders" data-vx-nav="contenders">Nominees</a>' +
+        '<a href="#road" data-vx-nav="road">The Road</a>' +
+        '<button class="vx-close" id="vxClose" aria-label="Close">\u00d7</button>' +
+      "</div></div>" +
+      '<div class="vx-sub"><div class="vx-sub-in">' +
+        '<button class="vx-arrow" id="vxPrev"' + (step === 0 ? " disabled" : "") + '>\u2039 Previous</button>' +
+        '<div class="vx-dots">' + dots + "</div>" +
+        '<button class="vx-arrow next" id="vxNext"' + (step === VOTE.length - 1 ? " disabled" : "") + '>Next \u203a</button>' +
+      "</div></div>" +
+      '<div class="vx-hero"><h2>Vote Now</h2><button class="vx-more" id="vxMore">More info</button></div>' +
+      '<div class="vx-cat"><div class="vx-eyebrow">Award ' + (step + 1) + " of " + VOTE.length + "</div>" +
+        '<h3 class="vx-title">' + esc(c.cat) + "</h3>" +
+        '<p class="vx-by">Presented by <b>Roxburgh College</b></p>' +
+        '<p class="vx-desc">' + esc(c.note) + ". " + (c.cat === "Club of the Year" ? "Choose the club that set the standard this season." : "Choose one nominee \u2014 your pick counts as one vote.") + "</p>" +
+        '<div class="vx-cards">' + cards + "</div>" +
+      "</div>" +
+      '<div class="vx-foot"><div class="vx-foot-row">' +
+        '<button class="vx-link" id="vxSkip">Skip category</button>' +
+        '<span class="vx-fill">You have filled in ' + Object.keys(picked).length + " of " + VOTE.length + " categories</span>" +
+        '<button class="vx-link right" id="vxClear">Clear selection</button>' +
+      "</div>" +
+      '<button class="vx-submit" id="vxSubmit"' + (Object.keys(picked).length < VOTE.length ? " disabled" : "") + ">Submit</button></div>";
   }
 
   function open(e) {
@@ -2295,22 +2289,17 @@ else boot();
     ov.classList.remove("open"); ov.hidden = true;
     document.body.classList.remove("voting");
   }
-
   function thankYou() {
-    ov.querySelector(".vo-wrap").innerHTML =
-      '<div class="vo-top"><b>RC Ballon d\u2019Or 2026 \u00b7 Voting</b><button class="vo-x" id="voClose" aria-label="Close">\u00d7</button></div>' +
-      '<div class="vo-done"><div class="eyebrow" style="justify-content:center">Ballot received</div><h2>Thank you</h2>' +
-      '<p>You have already voted on this device \u2014 one ballot per person. Results are announced at the ceremony.</p></div>';
+    ov.innerHTML = '<div class="vx-nav"><div class="vx-nav-in"><a href="#" data-vx-nav="home">Home</a><a class="on">Vote</a>' +
+      '<button class="vx-close" id="vxClose" aria-label="Close">\u00d7</button></div></div>' +
+      '<div class="vx-done"><div class="eyebrow" style="justify-content:center">Ballot received</div><h2>Thank you</h2>' +
+      "<p>You have already voted on this device \u2014 one ballot per person. Results are announced at the ceremony.</p></div>";
   }
-
   function send() {
-    const btn = ov.querySelector("#voNext");
+    var btn = ov.querySelector("#vxSubmit");
     if (btn) { btn.disabled = true; btn.textContent = "Sending\u2026"; }
-    const votes = VOTE.map(function (c) { return { category: c.cat, nominee: picked[c.cat] }; });
-    const body = JSON.stringify({
-      voter: "anon", votes: votes,
-      ballotId: "b-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8)
-    });
+    var votes = VOTE.map(function (c) { return { category: c.cat, nominee: picked[c.cat] }; });
+    var body = JSON.stringify({ voter: "anon", votes: votes, ballotId: "b-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8) });
     try { localStorage.setItem(STORE, "1"); } catch (e) {}
     fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
       .then(thankYou).catch(thankYou);
@@ -2318,22 +2307,40 @@ else boot();
 
   document.addEventListener("click", function (e) {
     if (e.target.closest('a[href="vote/"], [data-open-vote]')) { open(e); return; }
-    if (e.target.closest("#voClose")) { close(); return; }
-    const opt = e.target.closest(".vo-opt");
-    if (opt) {
-      picked[VOTE[step].cat] = opt.dataset.name;
-      paint();
+    if (!ov.classList.contains("open")) return;
+    if (e.target.closest("#vxClose")) { close(); return; }
+    var nav = e.target.closest("[data-vx-nav]");
+    if (nav) {
+      e.preventDefault();
+      var id = nav.getAttribute("data-vx-nav");
+      close();
+      if (id === "home") { window.scrollTo({ top: 0, behavior: "smooth" }); }
+      else { var el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: "smooth" }); }
       return;
     }
-    if (e.target.closest("#voBack")) { setTimeout(function(){ step = Math.max(0, step - 1); render(); }, 120); return; }
-    if (e.target.closest("#voNext")) {
-      if (step < VOTE.length - 1) { setTimeout(function(){ step += 1; render(); }, 120); }
-      else { send(); }
+    var card = e.target.closest(".vx-card");
+    if (card) {
+      picked[VOTE[step].cat] = card.getAttribute("data-name");
+      render();
+      var on = ov.querySelector(".vx-card.on");
+      if (on) on.scrollIntoView({ block: "nearest", inline: "nearest" });
+      return;
     }
+    if (e.target.closest("#vxPrev")) { step = Math.max(0, step - 1); render(); ov.scrollTop = 0; return; }
+    if (e.target.closest("#vxNext")) { step = Math.min(VOTE.length - 1, step + 1); render(); ov.scrollTop = 0; return; }
+    if (e.target.closest("#vxSkip")) { step = Math.min(VOTE.length - 1, step + 1); render(); ov.scrollTop = 0; return; }
+    if (e.target.closest("#vxClear")) { delete picked[VOTE[step].cat]; render(); return; }
+    if (e.target.closest("#vxMore")) {
+      var el2 = document.getElementById("awards"); close(); if (el2) el2.scrollIntoView({ behavior: "smooth" }); return;
+    }
+    if (e.target.closest("#vxSubmit")) { if (Object.keys(picked).length === VOTE.length) send(); return; }
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && ov.classList.contains("open")) close();
+    if (!ov.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight" && step < VOTE.length - 1) { step++; render(); }
+    if (e.key === "ArrowLeft" && step > 0) { step--; render(); }
   });
 })();
 </script>
