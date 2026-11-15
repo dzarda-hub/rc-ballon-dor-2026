@@ -2,7 +2,7 @@
 <html lang="en" data-file-id="rc-bdo-2026v4" data-font="serif">
 <head><base href="https://d16ilfvy4mv02r.cloudfront.net/workspaces/ZEw1IpwuylFCK1pHDCt7CZtuft9xKXET/95e9606a-4335-44e2-b5db-265d6b9b012a/files/">
 <meta charset="utf-8">
-<meta name="build" content="20261115T114404">
+<meta name="build" content="20261115T114744">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RC Ballon d'Or 2026 — Roxburgh College</title>
 <meta name="description" content="The Roxburgh College Ballon d'Or 2026 — nominees, award categories and results.">
@@ -2294,7 +2294,7 @@ else boot();
     document.body.classList.add("voting");
     ov.scrollTop = 0;
     if (voted()) { thankYou(); return; }
-    gate();
+    render();
   }
 
   function gate() {
@@ -2348,25 +2348,10 @@ else boot();
     var btn = ov.querySelector("#vxSubmit");
     if (btn) { btn.disabled = true; btn.textContent = "Sending\u2026"; }
     var ballot = VOTE.map(function (c) { return { category: c.cat, nominee: picked[c.cat] }; });
-    var url = ENDPOINT + "?action=vote&code=" + encodeURIComponent(myCode) +
-      "&votes=" + encodeURIComponent(JSON.stringify(ballot));
-    fetch(url)
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d && d.ok) {
-          try { localStorage.setItem(STORE, "1"); } catch (e) {}
-          thankYou();
-        } else {
-          var btn2 = ov.querySelector("#vxSubmit");
-          if (btn2) { btn2.disabled = false; btn2.textContent = "Submit"; }
-          alert((d && d.error === "used") ? "That code has already voted." : "Could not submit your ballot. Try again.");
-        }
-      })
-      .catch(function () {
-        var btn3 = ov.querySelector("#vxSubmit");
-        if (btn3) { btn3.disabled = false; btn3.textContent = "Submit"; }
-        alert("Could not reach the vote server. Try again.");
-      });
+    var body = JSON.stringify({ voter: "anon", votes: ballot, ballotId: "b-" + Date.now() + "-" + Math.random().toString(36).slice(2, 8) });
+    try { localStorage.setItem(STORE, "1"); } catch (e) {}
+    fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body })
+      .then(thankYou).catch(thankYou);
   }
 
   document.addEventListener("click", function (e) {
